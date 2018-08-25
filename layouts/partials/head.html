@@ -8,6 +8,18 @@
 				<meta name="description" content="{{ .Description }}">
 			{{ end }}
 		{{ end }}
+
+        {{ if .Site.Params.Google }}
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.Google }}"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '{{ .Site.Params.Google }}');
+            </script>
+        {{ end }}
 	
 		<title>
 			{{ if eq .URL "/" }}
